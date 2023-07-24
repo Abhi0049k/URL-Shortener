@@ -15,7 +15,7 @@ formEl.addEventListener('submit', (evnt)=>{
 
 const sendingData = async(obj)=>{
     try{
-        let res = await fetch('http://localhost:8998/url',{
+        let res = await fetch('https://hungry-tuxedo-duck.cyclic.app/url',{
             body: JSON.stringify(obj),
             headers: {
                 'Content-type': 'application/json'
