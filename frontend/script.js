@@ -5,7 +5,7 @@ const shortenedUrl = document.querySelector('#shortenedUrl');
 const shortContainerEl = document.querySelector('#shortenedUrlContainer');
 const shortContainer = document.querySelector('#msg');
 
-formEl.addEventListener('submit', (evnt)=>{
+formEl.addEventListener('submit', (evnt) => {
     evnt.preventDefault();
     let obj = {};
     obj.hrs = duration.value;
@@ -13,9 +13,9 @@ formEl.addEventListener('submit', (evnt)=>{
     sendingData(obj);
 })
 
-const sendingData = async(obj)=>{
-    try{
-        let res = await fetch('https://hungry-tuxedo-duck.cyclic.app/url',{
+const sendingData = async (obj) => {
+    try {
+        let res = await fetch('https://hungry-tuxedo-duck.cyclic.app/url', {
             body: JSON.stringify(obj),
             headers: {
                 'Content-type': 'application/json'
@@ -24,14 +24,14 @@ const sendingData = async(obj)=>{
         })
         let result = res.ok;
         res = await res.json();
-        if(result){
+        if (result) {
             shortContainerEl.style.display = 'block'
             shortenedUrl.innerText = res.url;
             shortContainer.innerText = res.msg;
-        }else{
+        } else {
             alert('Something went wrong');
         }
-    }catch(err){
+    } catch (err) {
         console.log(err);
     }
 }

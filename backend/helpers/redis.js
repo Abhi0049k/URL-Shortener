@@ -2,10 +2,10 @@ const redis = require('ioredis');
 require('dotenv').config();
 
 const redisClient = new redis({
-    host: process.env.REDIS_HOST,
-    port: process.env.REDIS_PORT,
-    password: process.env.REDIS_PASSWORD,
-    username: 'default'
+  host: process.env.REDIS_HOST,
+  port: process.env.REDIS_PORT,
+  password: process.env.REDIS_PASSWORD,
+  username: 'default'
 });
 
 redisClient.on('connect', async () => {
@@ -17,5 +17,5 @@ redisClient.on('error', async (err) => {
 });
 
 module.exports = {
-    redisClient
+  redisClient
 }
